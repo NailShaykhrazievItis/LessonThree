@@ -17,11 +17,8 @@ class MovieDetailsViewModel(private val movieService: MovieService) : ViewModel(
         movieService.getGenreList()
                 .map { it.genres }
                 .map { it.filter { ids.contains(it.id) } }
-//                    .map{ it.sortedBy { it.voteAverage } } // if u want sort by some param
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-//                .doOnSubscribe { loadingLiveData.setValue(true) }
-//                .doAfterTerminate { loadingLiveData.setValue(false) }
                 .subscribeBy(onSuccess = {
                     val genresLiveDataImm = genresLiveData
                     genresLiveDataImm?.value = Response.success(it)

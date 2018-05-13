@@ -37,7 +37,6 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
             moviesLiveData = MutableLiveData()
             movieService.topRatedMovies()
                     .map { it.movies }
-//                    .map{ it.sortedBy { it.voteAverage } } // if u want sort by some param
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { loadingLiveData.setValue(true) }
@@ -61,7 +60,6 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
             moviesLiveData = MutableLiveData()
             movieService.popularMovies()
                     .map { it.movies }
-//                    .map{ it.sortedBy { it.voteAverage } } // if u want sort by some param
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { loadingLiveData.setValue(true) }
