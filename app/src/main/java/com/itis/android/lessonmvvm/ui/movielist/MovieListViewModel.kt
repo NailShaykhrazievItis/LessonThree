@@ -78,6 +78,4 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
         }
         return moviesLiveData
     }
-
-
 }

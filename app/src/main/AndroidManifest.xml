@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MovieDetailsActivity"
+            android:name=".ui.moviedetails.MovieDetailsActivity"
             android:parentActivityName=".ui.TopRatedMoviesListActivity" />
         <activity android:name=".ui.PopularMoviesListActivity"></activity>
     </application>

@@ -15,8 +15,8 @@ import com.itis.android.lessonmvvm.di.di
 import com.itis.android.lessonmvvm.model.Response
 import com.itis.android.lessonmvvm.model.api_response.movie.Movie
 import com.itis.android.lessonmvvm.ui.BaseActivity
-import com.itis.android.lessonmvvm.ui.MovieDetailsActivity
 import com.itis.android.lessonmvvm.ui.ViewModelFactory
+import com.itis.android.lessonmvvm.ui.moviedetails.MovieDetailsActivity
 import com.itis.android.lessonmvvm.utils.ARG_MOVIE
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_movie_list.*
@@ -48,10 +48,10 @@ abstract class MovieListActivity : BaseActivity() {
                     }
                     it?.error != null -> {
                         Snackbar.make(container, it.error.message
-                                ?: "We have problem", Snackbar.LENGTH_SHORT)
+                                ?: "We have problem", Snackbar.LENGTH_SHORT).show()
                     }
                     else -> {
-                        Snackbar.make(container, "We have problem!!!", Snackbar.LENGTH_SHORT)
+                        Snackbar.make(container, "We have problem!!!", Snackbar.LENGTH_SHORT).show()
                     }
                 }
             })
