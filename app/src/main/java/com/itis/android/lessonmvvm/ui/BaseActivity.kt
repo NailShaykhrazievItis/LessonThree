@@ -1,0 +1,81 @@
+package com.itis.android.lessonmvvm.ui
+
+import android.content.Intent
+import android.os.Bundle
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
+import com.itis.android.lessonmvvm.R
+import kotlinx.android.synthetic.main.activity_base.*
+
+
+open class BaseActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_base)
+
+
+    }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    protected fun supportActionBar(toolbar: Toolbar) {
+        setSupportActionBar(toolbar)
+        initNavigationDrawer(toolbar)
+    }
+
+    protected fun setBackArrow(toolbar: Toolbar) {
+        val actionBar = supportActionBar
+        actionBar?.let {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setDisplayShowHomeEnabled(true)
+            toolbar.setNavigationOnClickListener { v -> onBackPressed() }
+        }
+    }
+
+    private fun initNavigationDrawer(toolbar: Toolbar) {
+        nav_view.setNavigationItemSelectedListener({ menuItem ->
+            val id = menuItem.getItemId()
+            when (id) {
+                R.id.menu_top_rated -> {
+                    val intent = Intent(applicationContext, TopRatedMoviesListActivity::class.java)
+                    startActivity(intent)
+                    menuItem.isChecked = true
+                    drawer_layout.closeDrawers()
+                }
+                R.id.menu_popular -> {
+                    val intent = Intent(applicationContext, PopularMoviesListActivity::class.java)
+                    startActivity(intent)
+                    menuItem.isChecked = true
+                    drawer_layout.closeDrawers()
+                }
+            }
+            true
+        })
+//        /*
+//          Если хотите получить элементы из верхней части бокового меню, то это делается так.
+//          Example:
+//          View header = mNavigationView.getHeaderView(0);
+//          TextView menuText = header.findViewById(R.id.tv_menu);
+//         */
+//        val header = nav_view.getHeaderView(0)
+//        val menuCover = header.findViewById(R.id.iv_cover)
+//        ImageLoadHelper.loadPictureByDrawable(menuCover, R.drawable.image_marvel_logo)
+        setActionBar(toolbar)
+    }
+
+    private fun setActionBar(toolbar: Toolbar) {
+        val actionBarDrawerToggle = ActionBarDrawerToggle(this, drawer_layout, toolbar,
+                R.string.drawer_open, R.string.drawer_close)
+        drawer_layout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+    }
+}
