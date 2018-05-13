@@ -17,7 +17,6 @@ class ViewModelFactory(private val movieService: MovieService) : ViewModelProvid
                     MovieListViewModel(movieService) as? T
                             ?: throw IllegalArgumentException("Unknown ViewModel class")
                 }
-
                 modelClass.isAssignableFrom(MovieDetailsViewModel::class.java) -> {
                     MovieDetailsViewModel(movieService) as? T
                             ?: throw IllegalArgumentException("Unknown ViewModel class")
