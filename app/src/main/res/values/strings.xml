@@ -9,4 +9,7 @@
     <string name="vote_count">Vote count:</string>
     <!--Transaction name-->
     <string name="transaction_poster">transaction_poster</string>
+    <!--Movies' list activity-->
+    <string name="popular">Popular</string>
+    <string name="top">Top</string>
 </resources>
