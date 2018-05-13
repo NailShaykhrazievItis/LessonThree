@@ -12,7 +12,6 @@ import io.reactivex.schedulers.Schedulers
 
 class MovieDetailsViewModel(private val movieService: MovieService) : ViewModel() {
 
-
     fun getGenresList(ids: List<Int>): LiveData<Response<List<Genre>>>? {
         var genresLiveData: MutableLiveData<Response<List<Genre>>>? = MutableLiveData()
         movieService.getGenreList()

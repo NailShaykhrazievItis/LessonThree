@@ -15,8 +15,6 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
-
-
     }
 
     override fun onBackPressed() {
@@ -60,15 +58,6 @@ open class BaseActivity : AppCompatActivity() {
             }
             true
         })
-//        /*
-//          Если хотите получить элементы из верхней части бокового меню, то это делается так.
-//          Example:
-//          View header = mNavigationView.getHeaderView(0);
-//          TextView menuText = header.findViewById(R.id.tv_menu);
-//         */
-//        val header = nav_view.getHeaderView(0)
-//        val menuCover = header.findViewById(R.id.iv_cover)
-//        ImageLoadHelper.loadPictureByDrawable(menuCover, R.drawable.image_marvel_logo)
         setActionBar(toolbar)
     }
 

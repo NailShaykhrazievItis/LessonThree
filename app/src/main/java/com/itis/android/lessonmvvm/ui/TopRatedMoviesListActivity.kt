@@ -9,6 +9,5 @@ class TopRatedMoviesListActivity : MovieListActivity() {
 
     override fun getMoviesList(): LiveData<Response<List<Movie>>>? {
         return viewModel.getTopRatedMoviesList()
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -7,13 +7,16 @@
     <string name="release_date">Release date:</string>
     <string name="rating">Rating:</string>
     <string name="vote_count">Vote count:</string>
+    <string name="genres">Genres:</string>
+
     <!--Transaction name-->
     <string name="transaction_poster">transaction_poster</string>
 
+    <!--Menu-->
     <string name="popular">Popular</string>
     <string name="top_rated">Top rated</string>
 
+    <!--Drawer-->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="genres">Genres</string>
 </resources>
