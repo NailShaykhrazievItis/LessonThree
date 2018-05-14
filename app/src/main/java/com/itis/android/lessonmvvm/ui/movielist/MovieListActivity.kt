@@ -31,7 +31,7 @@ abstract class MovieListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        layoutInflater.inflate(R.layout.activity_movie_list, drawer_container)
+        layoutInflater.inflate(R.layout.activity_movie_list, main_container)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieListViewModel::class.java)
         initRecycler()
         supportActionBar(tb_movie_list)

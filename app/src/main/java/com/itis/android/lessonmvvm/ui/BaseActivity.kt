@@ -40,7 +40,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     private fun initNavigationDrawer(toolbar: Toolbar) {
-        nav_view.setNavigationItemSelectedListener({ menuItem ->
+        nav_view.setNavigationItemSelectedListener { menuItem ->
             val id = menuItem.getItemId()
             when (id) {
                 R.id.menu_top_rated -> {
@@ -57,7 +57,7 @@ open class BaseActivity : AppCompatActivity() {
                 }
             }
             true
-        })
+        }
         setActionBar(toolbar)
     }
 
