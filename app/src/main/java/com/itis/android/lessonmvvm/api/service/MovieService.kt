@@ -1,6 +1,6 @@
 package com.itis.android.lessonmvvm.api.service
 
-import com.itis.android.lessonmvvm.model.api_response.Genre
+import com.itis.android.lessonmvvm.model.api_response.genre.GenresResponse
 import com.itis.android.lessonmvvm.model.api_response.movie.MoviesResponse
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -16,6 +16,6 @@ interface MovieService {
     @GET("movie/top_rated")
     fun topRatedMovies(): Single<MoviesResponse>
 
-    @GET("/genre/movie/list")
-    fun getGenreList(): Single<List<Genre>>
+    @GET("genre/movie/list")
+    fun getGenreList(): Single<GenresResponse>
 }
