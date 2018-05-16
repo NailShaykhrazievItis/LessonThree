@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_popular"
+        android:enabled="true"
+        android:icon="@drawable/ic_remove_red_eye_black_24dp"
+        android:title="@string/text_popular"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_top"
+        android:enabled="true"
+        android:icon="@drawable/ic_star_white_24dp"
+        android:title="@string/text_top"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_search"
+        android:enabled="true"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/text_search"
+        app:showAsAction="ifRoom" />
+</menu>

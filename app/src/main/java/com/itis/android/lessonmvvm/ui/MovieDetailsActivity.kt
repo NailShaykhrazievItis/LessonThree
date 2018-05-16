@@ -49,4 +49,6 @@ class MovieDetailsActivity : AppCompatActivity() {
         tv_vote_count.text = movie.voteCount.toString()
         tv_release_date.text = movie.releaseDate
     }
+
+
 }
