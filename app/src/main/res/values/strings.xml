@@ -9,4 +9,8 @@
     <string name="vote_count">Vote count:</string>
     <!--Transaction name-->
     <string name="transaction_poster">transaction_poster</string>
+    <string name="text_popular">Popular</string>
+    <string name="text_top">Top</string>
+    <string name="text_search">Search</string>
+    <string name="Genre">Genre</string>
 </resources>
