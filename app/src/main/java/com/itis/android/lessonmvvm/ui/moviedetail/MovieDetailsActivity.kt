@@ -69,12 +69,12 @@ class MovieDetailsActivity : AppCompatActivity() {
                         val genres: List<Genre>? = it.data
                         genres?.forEach {
                             if (movie.genres?.contains(it.id) == true){
-                                val text = tv_genres.text as String + it.name + ", "
+                                val text = tv_genres.text as? String + it.name + ", "
                                 tv_genres.text = text
                             }
                         }
-                        val text = tv_genres.text as String
-                        tv_genres.text = text.substring(0, text.lastIndex - 1)
+                        val text = tv_genres.text as? String
+                        tv_genres.text = text?.substring(0, text.lastIndex - 1)
                     }
                     it?.error != null -> {
                         Snackbar.make(container, it.error.message

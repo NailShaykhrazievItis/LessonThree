@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers
 class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
 
     private val loadingLiveData = MutableLiveData<Boolean>()
-    private var moviesLiveData: MutableLiveData<Response<List<Movie>>>? = null;
+    private var moviesLiveData: MutableLiveData<Response<List<Movie>>>? = null
 
     val navigateToMovieDetails = SingleLiveEvent<Pair<Movie, View>>()
 
@@ -33,7 +33,7 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
 
     @MainThread
     fun getPopularMoviesList(): LiveData<Response<List<Movie>>>? {
-        nullifyMoviesLiveData();
+        nullifyMoviesLiveData()
         if (moviesLiveData == null) {
             moviesLiveData = MutableLiveData()
             movieService.popularMovies()
@@ -81,7 +81,7 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
         return moviesLiveData
     }
 
-    fun nullifyMoviesLiveData() {
-        this.moviesLiveData = null;
+    private fun nullifyMoviesLiveData() {
+        this.moviesLiveData = null
     }
 }

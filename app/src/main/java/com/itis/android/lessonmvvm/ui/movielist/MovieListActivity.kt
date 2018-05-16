@@ -9,8 +9,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.Button
 import com.itis.android.lessonmvvm.R
+import com.itis.android.lessonmvvm.R.id.btn_switch
+import com.itis.android.lessonmvvm.R.id.tb_movie_list
 import com.itis.android.lessonmvvm.di.di
 import com.itis.android.lessonmvvm.ui.moviedetail.MovieDetailsActivity
 import com.itis.android.lessonmvvm.ui.ViewModelFactory
@@ -23,7 +24,6 @@ class MovieListActivity : AppCompatActivity() {
     private val viewModelFactory: ViewModelFactory by di.instance()
     private lateinit var viewModel: MovieListViewModel
     private var adapter: MovieListAdapter? = null
-    private lateinit var switchButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +31,8 @@ class MovieListActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieListViewModel::class.java)
         initRecycler()
         setSupportActionBar(tb_movie_list)
-        switchButton = findViewById(R.id.btn_switch)
-        switchButton.setText(R.string.popular)
-        switchButton.setOnClickListener {
-            onSwitchButtonClick()
-        }
+        btn_switch.text = getString(R.string.popular)
+        btn_switch.setOnClickListener { onSwitchButtonClick() }
         observePopularMoviesList()
         observeProgressBar()
         observeItemClick()
@@ -104,12 +101,12 @@ class MovieListActivity : AppCompatActivity() {
     }
 
     private fun onSwitchButtonClick() {
-        if (switchButton.text.equals(getString(R.string.popular))) {
-            switchButton.setText(R.string.top)
+        if (btn_switch.text == getString(R.string.popular)) {
+            btn_switch.text = getString(R.string.top)
             observeTopRatedMoviesList()
         }
-        else if (switchButton.text.equals(getString(R.string.top))){
-            switchButton.setText(R.string.popular)
+        else if (btn_switch.text == getString(R.string.top)){
+            btn_switch.text = getString(R.string.popular)
             observePopularMoviesList()
         }
     }
