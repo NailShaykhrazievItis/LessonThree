@@ -7,6 +7,14 @@
     <string name="release_date">Release date:</string>
     <string name="rating">Rating:</string>
     <string name="vote_count">Vote count:</string>
+    <string name="genres">Genres</string>
     <!--Transaction name-->
     <string name="transaction_poster">transaction_poster</string>
+
+    <string name="popular_movie">Популярные фильмы</string>
+    <string name="top_movie">Лучшие фильмы</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="search">Search</string>
 </resources>

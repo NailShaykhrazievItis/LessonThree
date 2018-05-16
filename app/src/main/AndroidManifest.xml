@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_db_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.movielist.MovieListActivity">
+        <activity android:name=".ui.movielist.TopRatedMoviesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MovieDetailsActivity"
-            android:parentActivityName=".ui.movielist.MovieListActivity"/>
+            android:name=".ui.moviedetails.MovieDetailsActivity"
+            android:parentActivityName=".ui.movielist.TopRatedMoviesListActivity"/>
+        <activity android:name=".ui.movielist.PopularMoviesListActivity" />
     </application>
 
 </manifest>

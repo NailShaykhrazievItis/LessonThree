@@ -84,6 +84,24 @@
             android:textSize="@dimen/text_small"
             tools:text="546" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/genres"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_medium" />
+
+        <TextView
+            android:id="@+id/tv_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_small"
+            tools:text="546" />
+
         <ProgressBar
             android:id="@+id/progress_loader"
             style="?android:attr/progressBarStyle"
