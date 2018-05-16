@@ -32,7 +32,8 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
     }
 
     @MainThread
-    fun getTopRatedMoviesList(): LiveData<Response<List<Movie>>>? {
+    fun getPopularMoviesList(): LiveData<Response<List<Movie>>>? {
+        nullifyMoviesLiveData()
         if (moviesLiveData == null) {
             moviesLiveData = MutableLiveData()
             movieService.popularMovies()
@@ -53,5 +54,34 @@ class MovieListViewModel(private val movieService: MovieService) : ViewModel() {
                     })
         }
         return moviesLiveData
+    }
+
+    @MainThread
+    fun getTopRatedMoviesList(): LiveData<Response<List<Movie>>>? {
+        nullifyMoviesLiveData()
+        if (moviesLiveData == null) {
+            moviesLiveData = MutableLiveData()
+            movieService.topRatedMovies()
+                    .map { it.movies }
+                    .map{ it.sortedByDescending { it.voteAverage } } // if u want sort by some param
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe { loadingLiveData.setValue(true) }
+                    .doAfterTerminate { loadingLiveData.setValue(false) }
+                    .subscribeBy(onSuccess = {
+                        val moviesLiveDataImm = moviesLiveData
+                        moviesLiveDataImm?.value = Response.success(it)
+                        moviesLiveData = moviesLiveDataImm
+                    }, onError = {
+                        val moviesLiveDataImm = moviesLiveData
+                        moviesLiveDataImm?.value = Response.error(it)
+                        moviesLiveData = moviesLiveDataImm
+                    })
+        }
+        return moviesLiveData
+    }
+
+    private fun nullifyMoviesLiveData() {
+        this.moviesLiveData = null
     }
 }
